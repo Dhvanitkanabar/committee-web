@@ -40,47 +40,10 @@ export default function Home() {
              duration: 0.15,
              ease: "power2.out"
            });
-           
-           // 2. Next-Level 3D Mouse Parallax on Hero
-           const xPos = (e.clientX / window.innerWidth - 0.5) * 2; // Range: -1 to 1
-           const yPos = (e.clientY / window.innerHeight - 0.5) * 2; // Range: -1 to 1
-           
-           if (heroRef.current) {
-              gsap.to(heroRef.current, {
-                 rotationX: -yPos * 15,
-                 rotationY: xPos * 15,
-                 x: xPos * 30,
-                 y: yPos * 30,
-                 duration: 1.5,
-                 ease: "power3.out",
-                 transformPerspective: 1000
-              });
-           }
-           
-           // 3. Reverse Parallax on Widgets
-           const widgets = document.querySelectorAll(".widget-parallax");
-           if (widgets.length > 0) {
-             gsap.to(widgets, {
-                rotationX: yPos * 5,
-                rotationY: -xPos * 5,
-                x: -xPos * 20,
-                y: -yPos * 20,
-                duration: 1.5,
-                stagger: 0.02,
-                ease: "power3.out",
-                transformPerspective: 800
-             });
-           }
          };
          
          const resetParallax = () => {
-           if (heroRef.current) {
-              gsap.to(heroRef.current, { rotationX: 0, rotationY: 0, x: 0, y: 0, duration: 1.5, ease: "power3.out" });
-           }
-           const widgets = document.querySelectorAll(".widget-parallax");
-           if (widgets.length > 0) {
-              gsap.to(widgets, { rotationX: 0, rotationY: 0, x: 0, y: 0, duration: 1.5, ease: "power3.out" });
-           }
+            // Unused but kept for cleanup reference if needed
          };
 
          window.addEventListener("mousemove", moveCursor);
@@ -441,7 +404,7 @@ export default function Home() {
             {/* Minimalist Floating Geometry (Clean Hacker Vibe) */}
             <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
                {/* Ambient Glow */}
-               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-accent/10 blur-[100px] rounded-full"></div>
+               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-accent/5 blur-[40px] transform-gpu rounded-full"></div>
                
                {/* Floating Plus Signs and Circles */}
                <div className="hero-particle absolute top-[20%] left-[10%] text-accent/30 font-mono text-xl animate-[ping_4s_linear_infinite]">＋</div>

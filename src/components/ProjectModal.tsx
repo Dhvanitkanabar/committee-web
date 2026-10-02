@@ -81,7 +81,7 @@ export default function ProjectModal({ activeProject, onClose }: { activeProject
           >
              
              {/* Subtle glowing orb */}
-             <div className="absolute top-0 right-0 w-[30rem] h-[30rem] bg-accent/10 blur-[100px] rounded-full pointer-events-none -translate-y-1/2 translate-x-1/2"></div>
+             <div className="absolute top-0 right-0 w-[30rem] h-[30rem] bg-accent/5 blur-[40px] transform-gpu rounded-full pointer-events-none -translate-y-1/2 translate-x-1/2"></div>
 
              <div className="modal-text-reveal flex items-center gap-4 mb-4 mt-8 md:mt-0">
                <div className="w-12 h-px bg-accent"></div>
