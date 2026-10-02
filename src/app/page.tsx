@@ -682,7 +682,7 @@ export default function Home() {
                        <div className="absolute bottom-6 left-6 right-6 flex justify-between transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">
                           <div className="text-center">
                              <span className="block text-3xl font-black text-white">{member.stats.hackathons}</span>
-                             <span className="text-[10px] font-bold uppercase tracking-widest text-white/70">Hackathons</span>
+                             <span className="text-[10px] font-bold uppercase tracking-widest text-white/70">Events</span>
                           </div>
                           <div className="text-center">
                              <span className="block text-3xl font-black text-accent">{member.stats.wins}</span>

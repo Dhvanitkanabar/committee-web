@@ -19,6 +19,19 @@ export const TEAM = [
     },
   },
   {
+    id: "zeel",
+    name: "Zeel Kundariya",
+    role: "HackSprint - Organiser Lead | PixelRush - Organising Lead",
+    image: "/zeelkundariya-coat.jpeg",
+    stats: { hackathons: "15+", wins: 2, projects: 12 },
+    works: ["Daiict (repo rebooster) - 2nd place", "Adani Hackathon - 3rd place"],
+    socials: { 
+      github: "https://github.com/Zeelkundariya", 
+      linkedin: "https://www.linkedin.com/in/zeel-kundariya", 
+      portfolio: "http://zeel-kundariya-portfolio.vercel.app/" 
+    },
+  },
+  {
     id: "dhvanit",
     name: "Dhvanit Kanabar",
     role: "PixelRush - Organising Lead",
@@ -37,25 +50,16 @@ export const TEAM = [
     },
   },
   {
-    id: "zeel",
-    name: "Zeel Kundariya",
-    role: "HackSprint - Organiser Lead | PixelRush - Organising Lead",
-    image: "/zeelkundariya-coat.jpeg",
-    stats: { hackathons: "15+", wins: 2, projects: 12 },
-    works: ["Daiict (repo rebooster) - 2nd place", "Adani Hackathon - 3rd place"],
-    socials: { 
-      github: "https://github.com/Zeelkundariya", 
-      linkedin: "https://www.linkedin.com/in/zeel-kundariya", 
-      portfolio: "http://zeel-kundariya-portfolio.vercel.app/" 
-    },
-  },
-  {
     id: "pal",
     name: "Pal Pathak",
     role: "PixelRush - Organising Lead",
     image: "/palpathak-coat.jpeg",
     stats: { hackathons: "15", wins: 2, projects: 15 },
-    works: ["PixelRush '2k26 - UI/UX", "DesignThon '25 - Winner"],
+    works: [
+      "DMIT Top Ranker award", 
+      "GDG NIT Surat Hackathon (Top 4)", 
+      "Internal SIH Hackathon (2nd place)"
+    ],
     socials: { 
       github: "https://github.com/paldpathak404", 
       linkedin: "https://www.linkedin.com/in/paldpathak", 
