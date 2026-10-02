@@ -114,11 +114,6 @@ export default function TeamReveal() {
 
             {/* Hidden Content Revealed on Hover */}
             <div className="team-card-content flex flex-col items-center mt-0 h-0 overflow-hidden opacity-0 transition-all duration-500">
-               <div className="flex flex-wrap justify-center gap-1.5 mt-4">
-                  {member.works.map((work, idx) => (
-                    <span key={idx} className="px-2.5 py-1 bg-white/5 border border-white/10 rounded-full text-[8px] font-bold uppercase tracking-widest text-white/70 whitespace-nowrap">{work}</span>
-                  ))}
-               </div>
                
                <div className="flex justify-center gap-3 mt-4">
                   {member.socials.portfolio && member.socials.portfolio !== "#" && (

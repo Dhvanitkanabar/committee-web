@@ -41,7 +41,7 @@ export const TEAM = [
     name: "Zeel Kundariya",
     role: "HackSprint - Organiser Lead | PixelRush - Organising Lead",
     image: "/zeelkundariya-coat.jpeg",
-    stats: { hackathons: "15+", wins: 1, projects: 12 },
+    stats: { hackathons: "15+", wins: 2, projects: 12 },
     works: ["Daiict (repo rebooster) - 2nd place", "Adani Hackathon - 3rd place"],
     socials: { 
       github: "https://github.com/Zeelkundariya", 
@@ -54,7 +54,7 @@ export const TEAM = [
     name: "Pal Pathak",
     role: "PixelRush - Organising Lead",
     image: "/palpathak-coat.jpeg",
-    stats: { hackathons: "15", wins: 1, projects: 15 },
+    stats: { hackathons: "15", wins: 2, projects: 15 },
     works: ["PixelRush '2k26 - UI/UX", "DesignThon '25 - Winner"],
     socials: { 
       github: "https://github.com/paldpathak404", 
