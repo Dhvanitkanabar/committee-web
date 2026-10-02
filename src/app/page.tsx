@@ -530,15 +530,15 @@ export default function Home() {
              <div className="about-stat-card absolute top-0 right-0 md:right-10 w-[90%] md:w-[70%] h-[250px] bg-accent rounded-[3rem] p-10 flex flex-col justify-between hover:-translate-y-4 hover:shadow-[0_30px_60px_rgba(0,0,0,0.5)] transition-all duration-700 hover:rotate-2 cursor-pointer z-30 border-4 border-espresso hover-target group">
                 <p className="font-bold uppercase tracking-widest text-espresso text-sm">Global Reach</p>
                 <div className="flex items-end justify-between">
-                   <h3 className="text-7xl md:text-8xl font-black text-sand drop-shadow-xl group-hover:scale-110 origin-bottom-left transition-transform duration-500">500+</h3>
-                   <p className="font-bold uppercase tracking-widest text-espresso text-xs mb-2">Hackers</p>
+                   <h3 className="text-7xl md:text-8xl font-black text-sand drop-shadow-xl group-hover:scale-110 origin-bottom-left transition-transform duration-500">300+</h3>
+                   <p className="font-bold uppercase tracking-widest text-espresso text-xs mb-2">Participants</p>
                 </div>
              </div>
 
              <div className="about-stat-card absolute top-[30%] left-0 md:left-10 w-[85%] md:w-[65%] h-[250px] bg-sand rounded-[3rem] p-10 flex flex-col justify-between hover:-translate-y-4 hover:shadow-[0_30px_60px_rgba(0,0,0,0.5)] transition-all duration-700 hover:-rotate-2 cursor-pointer z-20 border-4 border-espresso hover-target group">
                 <p className="font-bold uppercase tracking-widest text-espresso/50 text-sm">Output</p>
                 <div className="flex items-end justify-between">
-                   <h3 className="text-7xl md:text-8xl font-black text-espresso group-hover:text-accent transition-colors duration-500">100+</h3>
+                   <h3 className="text-7xl md:text-8xl font-black text-espresso group-hover:text-accent transition-colors duration-500">50+</h3>
                    <p className="font-bold uppercase tracking-widest text-espresso/50 text-xs mb-2">Projects</p>
                 </div>
              </div>
@@ -546,7 +546,7 @@ export default function Home() {
              <div className="about-stat-card absolute bottom-0 right-0 md:right-20 w-[75%] md:w-[55%] h-[220px] bg-espresso/50 backdrop-blur-xl rounded-[3rem] p-10 flex flex-col justify-between hover:-translate-y-4 hover:shadow-2xl transition-all duration-700 cursor-pointer z-10 border-2 border-sand/10 hover-target group">
                 <p className="font-bold uppercase tracking-widest text-sand/50 text-sm">Experience</p>
                 <div className="flex items-end justify-between">
-                   <h3 className="text-6xl md:text-7xl font-black text-sand group-hover:text-accent transition-colors duration-500">20+</h3>
+                   <h3 className="text-6xl md:text-7xl font-black text-sand group-hover:text-accent transition-colors duration-500">2</h3>
                    <p className="font-bold uppercase tracking-widest text-sand/50 text-xs mb-2">Events</p>
                 </div>
              </div>
@@ -693,8 +693,7 @@ export default function Home() {
 
                     {/* Content Column */}
                     <div className="w-full md:w-[58%] flex flex-col z-10 px-8 pb-10 md:p-12 md:pl-4">
-                       <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tighter group-hover:text-accent transition-colors mb-3 leading-none">{member.name}</h3>
-                       <p className="text-accent text-[12px] md:text-[14px] font-bold tracking-[0.3em] uppercase mb-10">{member.role}</p>
+                       <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tighter group-hover:text-accent transition-colors mb-10 leading-none">{member.name}</h3>
 
                        <div className="space-y-5 mb-10">
                           <h4 className="text-[11px] font-bold uppercase tracking-[0.3em] text-espresso/40 border-b border-espresso/10 pb-3">Notable Works</h4>

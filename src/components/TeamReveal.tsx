@@ -106,7 +106,6 @@ export default function TeamReveal() {
             </div>
             
             <h3 className="text-2xl font-black uppercase tracking-tight text-center text-white">{member.name}</h3>
-            <p className="text-accent tracking-[0.2em] uppercase text-[10px] mt-2 text-center font-bold opacity-70 transition-opacity duration-300 team-card-role">{member.role}</p>
 
             {/* Hidden Content Revealed on Hover */}
             <div className="team-card-content flex flex-col items-center mt-0 h-0 overflow-hidden opacity-0 transition-all duration-500">
