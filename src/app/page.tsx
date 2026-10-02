@@ -6,12 +6,14 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import TeamReveal from "@/components/TeamReveal";
 import ProjectModal from "@/components/ProjectModal";
+import ContactModal from "@/components/ContactModal";
 import { TEAM } from "@/data/team";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
   const [activeProject, setActiveProject] = useState<string | null>(null);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   const heroRef = useRef<HTMLHeadingElement>(null);
   const navRef = useRef<HTMLElement>(null);
@@ -376,8 +378,8 @@ export default function Home() {
 
         {/* Right: CTA */}
         <div className="flex-1 flex justify-end">
-           <button className="magnetic-btn px-6 py-3 bg-white text-black rounded-full text-sm font-bold hover:scale-105 hover:bg-accent hover:text-white hover:shadow-lg transition-all duration-300 uppercase tracking-widest whitespace-nowrap">
-             Join Us
+           <button onClick={() => setIsContactModalOpen(true)} className="magnetic-btn px-6 py-3 bg-espresso text-white rounded-full text-sm font-bold hover:scale-105 hover:bg-accent hover:text-white hover:shadow-lg transition-all duration-300 uppercase tracking-widest whitespace-nowrap hover-target">
+             Contact Us
            </button>
         </div>
       </nav>
@@ -387,18 +389,9 @@ export default function Home() {
          {/* Top Content: Massive Typography & 3D Elements */}
          <div className="flex-1 w-full flex items-center justify-center relative overflow-hidden">
             
-            {/* 1. Infinite 3D Cyber-Grid Floor (Now highly visible) */}
-            <div className="absolute inset-0 pointer-events-none -z-20 overflow-hidden flex items-end justify-center" style={{ perspective: "1000px" }}>
-               <div className="w-[300vw] h-[150vh] bg-[linear-gradient(to_right,rgba(217,119,70,0.25)_2px,transparent_2px),linear-gradient(to_bottom,rgba(217,119,70,0.25)_2px,transparent_2px)] bg-[size:4rem_4rem] cyber-grid-animate" 
-                    style={{ transform: "rotateX(75deg) translateZ(-200px) translateY(200px)", transformOrigin: "bottom center" }}>
-               </div>
-               {/* Fade out top of grid */}
-               <div className="absolute inset-0 bg-gradient-to-b from-beige via-transparent to-transparent z-10"></div>
-            </div>
-
-            {/* Dynamic Infinite Grid */}
-            <div className="absolute inset-0 z-0 pointer-events-none opacity-20" style={{ perspective: "1000px" }}>
-               <div className="absolute inset-0 bg-[linear-gradient(rgba(217,119,70,0.3)_1px,transparent_1px),linear-gradient(90deg,rgba(217,119,70,0.3)_1px,transparent_1px)] bg-[size:4rem_4rem] [transform:rotateX(60deg)_translateY(-100px)_scale(2)] cyber-grid-animate" style={{ transformOrigin: "top center" }}></div>
+            {/* Minimalist 2D Grid (Optimized for performance) */}
+            <div className="absolute inset-0 z-0 pointer-events-none opacity-20 transform-gpu">
+               <div className="absolute inset-0 bg-[linear-gradient(rgba(217,119,70,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(217,119,70,0.2)_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
             </div>
 
             {/* Minimalist Floating Geometry (Clean Hacker Vibe) */}
@@ -747,7 +740,7 @@ export default function Home() {
             {/* Fake marquee */}
             {[...Array(10)].map((_, i) => (
               <div key={i} className="w-64 h-40 bg-sand rounded-xl shrink-0 group-hover:scale-105 transition-transform duration-500 group-hover:-rotate-2 border border-transparent group-hover:border-accent overflow-hidden shadow-lg relative">
-                 <img src={`https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=400&q=80&sig=${i}`} alt="Asset" className="w-full h-full object-cover" />
+                 <img src={`/hackathon photos/${i + 1}.jpg`} alt="Asset" className="w-full h-full object-cover" />
               </div>
             ))}
         </div>
@@ -763,13 +756,13 @@ export default function Home() {
            {/* Top: Massive CTA */}
            <div className="flex flex-col items-center text-center">
               <p className="text-accent font-bold uppercase tracking-[0.3em] text-sm mb-6 flex items-center gap-4">
-                <span className="w-12 h-px bg-accent"></span> Ready to build? <span className="w-12 h-px bg-accent"></span>
+                <span className="w-12 h-px bg-accent"></span> Got a question? <span className="w-12 h-px bg-accent"></span>
               </p>
               <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter mb-10 leading-[0.9]">
-                 Join the <br/> Revolution
+                 Let's Build <br/> The Future
               </h2>
-              <button className="px-12 py-6 bg-sand text-espresso rounded-full font-black uppercase tracking-[0.2em] hover:bg-accent hover:text-white hover:scale-105 transition-all duration-300 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-                 Apply Now
+              <button onClick={() => setIsContactModalOpen(true)} className="px-12 py-6 bg-sand text-espresso rounded-full font-black uppercase tracking-[0.2em] hover:bg-accent hover:text-white hover:scale-105 transition-all duration-300 shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover-target">
+                 Contact Us
               </button>
            </div>
            
@@ -808,6 +801,7 @@ export default function Home() {
       
       {/* Dynamic GSAP Modals */}
       <ProjectModal activeProject={activeProject} onClose={() => setActiveProject(null)} />
+      <ContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
     </main>
   );
 }

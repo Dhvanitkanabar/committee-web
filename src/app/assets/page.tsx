@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 
 export default function AssetsPage() {
   const [filter, setFilter] = useState("All");
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   
   return (
     <main className="min-h-screen bg-sand text-espresso pt-32 pb-20 overflow-hidden">
@@ -39,16 +40,16 @@ export default function AssetsPage() {
       {/* Marquee Row 1 */}
       <div className="relative flex overflow-x-hidden group mb-10">
         <div className="flex whitespace-nowrap animate-marquee group-hover:[animation-play-state:paused]">
-          {[...Array(8)].map((_, i) => (
-            <div key={i} className="w-80 h-60 bg-espresso/10 mx-4 rounded-3xl shrink-0 cursor-pointer hover:-translate-y-2 hover:rotate-2 transition-transform duration-300 border border-espresso/20 flex items-center justify-center">
-              <span className="font-bold uppercase tracking-widest opacity-30">Photo {i+1}</span>
+          {[...Array(18)].map((_, i) => (
+            <div key={i} onClick={() => setSelectedImage(`/hackathon%20photos/${i + 1}.jpg`)} className="w-80 h-60 bg-espresso/10 mx-4 rounded-3xl shrink-0 overflow-hidden cursor-pointer hover:-translate-y-2 hover:rotate-2 transition-transform duration-300 border border-espresso/20 flex items-center justify-center relative">
+              <img src={`/hackathon%20photos/${i + 1}.jpg`} alt={`Photo ${i + 1}`} className="object-cover w-full h-full" loading="lazy" />
             </div>
           ))}
         </div>
         <div className="flex whitespace-nowrap animate-marquee group-hover:[animation-play-state:paused] absolute top-0">
-          {[...Array(8)].map((_, i) => (
-            <div key={i+8} className="w-80 h-60 bg-espresso/10 mx-4 rounded-3xl shrink-0 cursor-pointer hover:-translate-y-2 hover:rotate-2 transition-transform duration-300 border border-espresso/20 flex items-center justify-center">
-              <span className="font-bold uppercase tracking-widest opacity-30">Photo {i+1}</span>
+          {[...Array(18)].map((_, i) => (
+            <div key={i+18} onClick={() => setSelectedImage(`/hackathon%20photos/${i + 1}.jpg`)} className="w-80 h-60 bg-espresso/10 mx-4 rounded-3xl shrink-0 overflow-hidden cursor-pointer hover:-translate-y-2 hover:rotate-2 transition-transform duration-300 border border-espresso/20 flex items-center justify-center relative">
+              <img src={`/hackathon%20photos/${i + 1}.jpg`} alt={`Photo ${i + 1}`} className="object-cover w-full h-full" loading="lazy" />
             </div>
           ))}
         </div>
@@ -57,20 +58,43 @@ export default function AssetsPage() {
       {/* Marquee Row 2 (Reverse) */}
       <div className="relative flex overflow-x-hidden group">
         <div className="flex whitespace-nowrap animate-marquee-reverse group-hover:[animation-play-state:paused]">
-          {[...Array(8)].map((_, i) => (
-            <div key={i} className="w-96 h-72 bg-espresso/20 mx-4 rounded-3xl shrink-0 cursor-pointer hover:-translate-y-2 hover:-rotate-2 transition-transform duration-300 border border-espresso/20 flex items-center justify-center">
-               <span className="font-bold uppercase tracking-widest opacity-30 text-white">Photo {i+9}</span>
+          {[...Array(17)].map((_, i) => (
+            <div key={i} onClick={() => setSelectedImage(`/hackathon%20photos/${i + 19}.jpg`)} className="w-96 h-72 bg-espresso/20 mx-4 rounded-3xl shrink-0 overflow-hidden cursor-pointer hover:-translate-y-2 hover:-rotate-2 transition-transform duration-300 border border-espresso/20 flex items-center justify-center relative">
+               <img src={`/hackathon%20photos/${i + 19}.jpg`} alt={`Photo ${i + 19}`} className="object-cover w-full h-full" loading="lazy" />
             </div>
           ))}
         </div>
         <div className="flex whitespace-nowrap animate-marquee-reverse group-hover:[animation-play-state:paused] absolute top-0">
-          {[...Array(8)].map((_, i) => (
-            <div key={i+8} className="w-96 h-72 bg-espresso/20 mx-4 rounded-3xl shrink-0 cursor-pointer hover:-translate-y-2 hover:-rotate-2 transition-transform duration-300 border border-espresso/20 flex items-center justify-center">
-               <span className="font-bold uppercase tracking-widest opacity-30 text-white">Photo {i+9}</span>
+          {[...Array(17)].map((_, i) => (
+            <div key={i+17} onClick={() => setSelectedImage(`/hackathon%20photos/${i + 19}.jpg`)} className="w-96 h-72 bg-espresso/20 mx-4 rounded-3xl shrink-0 overflow-hidden cursor-pointer hover:-translate-y-2 hover:-rotate-2 transition-transform duration-300 border border-espresso/20 flex items-center justify-center relative">
+               <img src={`/hackathon%20photos/${i + 19}.jpg`} alt={`Photo ${i + 19}`} className="object-cover w-full h-full" loading="lazy" />
             </div>
           ))}
         </div>
       </div>
+
+      {/* Lightbox Modal */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm flex justify-center items-center p-4 md:p-10 cursor-zoom-out"
+          onClick={() => setSelectedImage(null)}
+        >
+          <img 
+            src={selectedImage} 
+            alt="Expanded view" 
+            className="max-w-full max-h-full object-contain rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)]" 
+          />
+          <button 
+            className="absolute top-6 right-6 text-white bg-white/10 hover:bg-white/20 rounded-full w-12 h-12 flex items-center justify-center transition-colors text-xl"
+            onClick={(e) => {
+              e.stopPropagation();
+              setSelectedImage(null);
+            }}
+          >
+            ✕
+          </button>
+        </div>
+      )}
 
     </main>
   );
