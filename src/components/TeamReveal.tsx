@@ -106,6 +106,11 @@ export default function TeamReveal() {
             </div>
             
             <h3 className="text-2xl font-black uppercase tracking-tight text-center text-white">{member.name}</h3>
+            <div className="text-accent tracking-[0.1em] uppercase text-[8px] mt-2 text-center font-bold opacity-70 transition-opacity duration-300 team-card-role flex flex-col gap-0.5">
+               {member.role.split(" | ").map((r, idx) => (
+                  <span key={idx}>{r}</span>
+               ))}
+            </div>
 
             {/* Hidden Content Revealed on Hover */}
             <div className="team-card-content flex flex-col items-center mt-0 h-0 overflow-hidden opacity-0 transition-all duration-500">

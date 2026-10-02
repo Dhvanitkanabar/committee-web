@@ -693,10 +693,15 @@ export default function Home() {
 
                     {/* Content Column */}
                     <div className="w-full md:w-[58%] flex flex-col z-10 px-8 pb-10 md:p-12 md:pl-4">
-                       <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tighter group-hover:text-accent transition-colors mb-10 leading-none">{member.name}</h3>
+                       <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tighter group-hover:text-accent transition-colors mb-2 leading-none">{member.name}</h3>
+                       <div className="text-accent text-[9px] md:text-[11px] font-bold tracking-[0.2em] uppercase mb-10 flex flex-col gap-1">
+                          {member.role.split(" | ").map((r, idx) => (
+                             <span key={idx}>{r}</span>
+                          ))}
+                       </div>
 
                        <div className="space-y-5 mb-10">
-                          <h4 className="text-[11px] font-bold uppercase tracking-[0.3em] text-espresso/40 border-b border-espresso/10 pb-3">Notable Works</h4>
+                          <h4 className="text-[11px] font-bold uppercase tracking-[0.3em] text-espresso/40 border-b border-espresso/10 pb-3">Notable Achievements</h4>
                           <div className="flex flex-wrap gap-3">
                              {member.works.map((work, i) => (
                                <span key={i} className="px-4 py-2 bg-espresso text-sand rounded-full text-[10px] font-bold uppercase tracking-widest cursor-default shadow-sm hover:bg-accent transition-colors hover:scale-105 hover:shadow-md transform duration-300">
