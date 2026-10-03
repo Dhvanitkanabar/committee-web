@@ -34,22 +34,20 @@ export default function Home() {
       if (window.innerWidth > 768 && cursorRef.current) {
          gsap.set(cursorRef.current, { xPercent: -50, yPercent: -50 });
          
+         const xTo = gsap.quickTo(cursorRef.current, "x", { duration: 0.15, ease: "power2.out" });
+         const yTo = gsap.quickTo(cursorRef.current, "y", { duration: 0.15, ease: "power2.out" });
+
          const moveCursor = (e: MouseEvent) => {
-           // 1. Move Custom Cursor
-           gsap.to(cursorRef.current, {
-             x: e.clientX,
-             y: e.clientY,
-             duration: 0.15,
-             ease: "power2.out"
-           });
+           xTo(e.clientX);
+           yTo(e.clientY);
          };
          
          const resetParallax = () => {
             // Unused but kept for cleanup reference if needed
          };
 
-         window.addEventListener("mousemove", moveCursor);
-         window.addEventListener("mouseleave", resetParallax);
+         window.addEventListener("mousemove", moveCursor, { passive: true });
+         window.addEventListener("mouseleave", resetParallax, { passive: true });
 
          // Hover interactions
          const hoverables = document.querySelectorAll("a, button, .hover-target");
@@ -69,9 +67,13 @@ export default function Home() {
       });
       
       lenis.on('scroll', ScrollTrigger.update);
-      gsap.ticker.add((time) => {
-        lenis.raf(time * 1000);
-      });
+      
+      const raf = (time: number) => {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      };
+      
+      requestAnimationFrame(raf);
       gsap.ticker.lagSmoothing(0);
 
       // 0. Navbar hide/show on scroll
